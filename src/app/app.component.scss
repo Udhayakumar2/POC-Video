@@ -1,0 +1,95 @@
+.container {
+    position: relative;
+    display: flex;
+    .video-tag{
+        width:100%;
+        height:70%;
+    }
+}
+
+.container video {
+    position: relative;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    z-index: 1;
+    .form-details{
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        border: 1px solid #FFFFFF33;
+        background-color: #FFFFFF22;
+        border-left: none;
+        border-bottom: none;
+        backdrop-filter: blur(15px);
+        gap: 20px;
+        height: 100%;
+        justify-content: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        gap: 20px;
+        height: 100%;
+        justify-content: center;
+
+        ::ng-deep {
+            .mat-mdc-form-field {
+                .mat-mdc-text-field-wrapper {
+                    .mdc-line-ripple {
+                        display: none;
+                    }
+                    padding: 6px 15px;
+                    border-radius: 6px;
+                    border: 1px solid #FFFFFF55;
+                    background-color: #FFFFFF88;
+                    backdrop-filter: blur(6px);
+                }
+
+                .mat-mdc-form-field-subscript-wrapper {
+                    display: none;
+                }
+            }
+        }
+
+        button {
+            padding: 6px 15px;
+            border-radius: 6px;
+            border: 1px solid #22ccff;
+            background-color: #00c3ff;
+            backdrop-filter: blur(6px);
+            cursor: pointer;
+        }
+    }
+}
+.close-icon {
+    margin-top: 0;
+    margin-left: auto;
+    cursor: pointer;
+}
+.error-message{
+    color: red;
+}
+.video-button{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    button{
+        margin-top: 10px;
+        padding: 6px 15px;
+        border-radius: 6px;
+        border: 1px solid #22ccff;
+        background-color: #00c3ff;
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+    }
+}

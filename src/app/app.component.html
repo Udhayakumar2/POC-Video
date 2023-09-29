@@ -1,0 +1,30 @@
+<div class="container">
+  <video class="video-tag" controls [loop]="false" #main_video controls="true">
+    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4" />
+  </video>
+  <div class="video-button" *ngIf="!showForm && currentTime > 10">
+    <button (click)="openForm()">Open Form</button>
+  </div>
+    <div class="overlay" *ngIf="showForm">
+      <div class="form-details">
+        <mat-icon class="close-icon" (click)="closeIcon()">close</mat-icon>
+        <form [formGroup]="personalDetails">
+              <mat-form-field class="example-full-width">
+                <!-- <mat-label>First name</mat-label> -->
+                <input formControlName="firstName"  matInput placeholder="First name" >
+              </mat-form-field>
+              <mat-error class="error-message" *ngIf="personalDetails.get('firstName')?.touched && personalDetails.get('firstName')?.hasError('required')">
+                First Name is Required 
+              </mat-error>
+              <mat-form-field class="example-full-width">
+                <!-- <mat-label>Last name</mat-label> -->
+                <input formControlName="lastName" matInput placeholder="Last name" >
+              </mat-form-field>
+              <mat-error *ngIf="personalDetails.get('lastName')?.touched && personalDetails.get('lastName')?.hasError('required')" class="error-message">
+                Last Name is Required 
+              </mat-error>            
+              <button (click)="sendForm()">Submit</button>
+          </form>
+      </div>
+    </div>
+</div>
